@@ -15,6 +15,9 @@ export function FormEducationalInfo({ handleSubmit }) {
       id: crypto.randomUUID(),
     };
     handleSubmit(newStudy);
+    setSchoolName("");
+    setTitleOfStudy("");
+    setDateOfStudy("");
   }
 
   return (
@@ -49,7 +52,7 @@ export function FormEducationalInfo({ handleSubmit }) {
           onChange={(e) => setDateOfStudy(e.target.value)}
         />
       </div>
-      <button type="submite">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }
