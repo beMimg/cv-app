@@ -19,7 +19,26 @@ function App() {
     setAllStudies(filtredStudies);
   }
 
-  console.log(allStudies);
+  function handleEditInput(type, id, e) {
+    setAllStudies((prevStudies) => {
+      return prevStudies.map((study) => {
+        if (study.id === id) {
+          if (type === "school") {
+            return { ...study, schoolName: e.target.value };
+          }
+          if (type === "title-of-study") {
+            return { ...study, titleOfStudy: e.target.value };
+          }
+          if (type === "date-of-study") {
+            return { ...study, dateOfStudy: e.target.value };
+          }
+        } else {
+          return study;
+        }
+      });
+    });
+  }
+
   return (
     <>
       <div className="left-side-main">
@@ -27,12 +46,29 @@ function App() {
         <h1>Educational Information</h1>
         <FormEducationalInfo
           handleSubmit={getEducationalInfo}
+          type="submit"
         ></FormEducationalInfo>
         {allStudies.map((study) => {
           return (
             <div key={study.id}>
-              <p>{study.schoolName}</p>
-              <button>Edit</button>
+              <label htmlFor="school-name">School name:</label>
+              <input
+                type="text"
+                value={study.schoolName}
+                onChange={(e) => handleEditInput("school", study.id, e)}
+              />
+              <label htmlFor="title-of-study">Title of study:</label>
+              <input
+                type="text"
+                value={study.titleOfStudy}
+                onChange={(e) => handleEditInput("title-of-study", study.id, e)}
+              />
+              <label htmlFor="date-of-study">Date of study:</label>
+              <input
+                type="text"
+                value={study.dateOfStudy}
+                onChange={(e) => handleEditInput("date-of-study", study.id, e)}
+              />
               <button onClick={() => handleDeleteStudy(study.id)}>
                 Delete
               </button>
