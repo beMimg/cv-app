@@ -1,13 +1,11 @@
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export function FormPracticalInfo({ handleSubmit }) {
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [mainResponsabilities, setMainResponsabilities] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -23,8 +21,8 @@ export function FormPracticalInfo({ handleSubmit }) {
     setCompanyName("");
     setPositionTitle("");
     setMainResponsabilities("");
-    setStartDate(new Date());
-    setEndDate(new Date());
+    setStartDate("");
+    setEndDate("");
   }
 
   return (
@@ -58,17 +56,19 @@ export function FormPracticalInfo({ handleSubmit }) {
         </div>
         <div>
           <label htmlFor="start-date">Start date:</label>
-          <DatePicker
-            selected={startDate}
-            onChange={(startDate) => setStartDate(startDate)}
-          ></DatePicker>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="end-date">End date:</label>
-          <DatePicker
-            selected={endDate}
-            onChange={(endDate) => setStartDate(endDate)}
-          ></DatePicker>
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
@@ -102,15 +102,17 @@ export function DisplayJobEditDelete({ allJobs, onDelete, onEdit }) {
               onChange={(e) => onEdit("main-responsabilities", job.id, e)}
             ></textarea>
             <label htmlFor="start-date">Start date:</label>
-            <DatePicker
-              selected={job.startDate}
-              onChange={(startDate) => onEdit("start-date", job.id, startDate)}
-            ></DatePicker>
+            <input
+              type="date"
+              value={job.startDate}
+              onChange={(e) => onEdit("start-date", job.id, e)}
+            />
             <label htmlFor="end-date">End date:</label>
-            <DatePicker
-              selected={job.endDate}
-              onChange={(endDate) => onEdit("end-date", job.id, endDate)}
-            ></DatePicker>
+            <input
+              type="date"
+              value={job.endDate}
+              onChange={(e) => onEdit("end-date", job.id, e)}
+            />
             <button onClick={() => onDelete(job.id)}> Delete</button>
           </li>
         );

@@ -46,7 +46,7 @@ export function FormEducationalInfo({ handleSubmit }) {
         <div>
           <label htmlFor="date-of-study">Date of study:</label>
           <input
-            type="text"
+            type="date"
             name="date-of-study"
             id="title-of-study"
             value={dateOfStudy}

@@ -64,10 +64,10 @@ function App() {
             return { ...job, mainResponsabilities: e.target.value };
           }
           if (type === "start-date") {
-            return { ...job, startDate: e };
+            return { ...job, startDate: e.target.value };
           }
           if (type === "end-date") {
-            return { ...job, endDate: e };
+            return { ...job, endDate: e.target.value };
           }
         } else {
           return job;
@@ -97,7 +97,30 @@ function App() {
         ></DisplayJobEditDelete>
       </div>
       <div className="right-side-main">
-        <div className="cv"></div>
+        <div className="cv">
+          <h1>Personal Information:</h1>
+          <div>
+            <p>Name: {generalInfo.name}</p>
+            <p>Email: {generalInfo.email}</p>
+            <p>Phone Number: {generalInfo.phoneNumber}</p>
+          </div>
+          <h1>Educational Information:</h1>
+          {allStudies.map((study) => (
+            <div key={study.id}>
+              <p>School:{study.schoolName}</p>
+              <p>Title:{study.titleOfStudy}</p>
+              <p>Date:{study.dateOfStudy}</p>
+            </div>
+          ))}
+          <h1>Practical Information:</h1>
+          {allJobs.map((job) => (
+            <div key={job.id}>
+              <p>{job.companyName}</p>
+              <p>{job.positionTitle}</p>
+              <p>{job.mainResponsabilities}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
