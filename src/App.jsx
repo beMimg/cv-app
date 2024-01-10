@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FormGeneralInfo } from "./FormGeneralInfo";
-import { FormEducationalInfo } from "./FormEducationalInfo";
+import { DisplayStudyEditDelete, FormEducationalInfo } from "./EducationalInfo";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState("");
@@ -39,42 +39,20 @@ function App() {
     });
   }
 
+  console.log(allStudies);
   return (
     <>
       <div className="left-side-main">
         <FormGeneralInfo handleSubmit={getGeneralInfo}></FormGeneralInfo>
-        <h1>Educational Information</h1>
         <FormEducationalInfo
           handleSubmit={getEducationalInfo}
           type="submit"
         ></FormEducationalInfo>
-        {allStudies.map((study) => {
-          return (
-            <div key={study.id}>
-              <label htmlFor="school-name">School name:</label>
-              <input
-                type="text"
-                value={study.schoolName}
-                onChange={(e) => handleEditInput("school", study.id, e)}
-              />
-              <label htmlFor="title-of-study">Title of study:</label>
-              <input
-                type="text"
-                value={study.titleOfStudy}
-                onChange={(e) => handleEditInput("title-of-study", study.id, e)}
-              />
-              <label htmlFor="date-of-study">Date of study:</label>
-              <input
-                type="text"
-                value={study.dateOfStudy}
-                onChange={(e) => handleEditInput("date-of-study", study.id, e)}
-              />
-              <button onClick={() => handleDeleteStudy(study.id)}>
-                Delete
-              </button>
-            </div>
-          );
-        })}
+        <DisplayStudyEditDelete
+          allStudies={allStudies}
+          onEdit={handleEditInput}
+          onDelete={handleDeleteStudy}
+        ></DisplayStudyEditDelete>
       </div>
       <div className="right-side-main">
         <div className="cv"></div>
