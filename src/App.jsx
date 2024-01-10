@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FormGeneralInfo } from "./FormGeneralInfo";
 import { DisplayStudyEditDelete, FormEducationalInfo } from "./EducationalInfo";
+import { DisplayJobEditDelete, FormPracticalInfo } from "./PracticalInfo";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState("");
   const [allStudies, setAllStudies] = useState([]);
+  const [allJobs, setAllJobs] = useState([]);
 
   function getGeneralInfo(info) {
     setGeneralInfo(info);
@@ -39,20 +41,60 @@ function App() {
     });
   }
 
-  console.log(allStudies);
+  function getPracticalInfo(job) {
+    setAllJobs([...allJobs, job]);
+  }
+
+  function handleDeleteJob(id) {
+    let filtredJobs = allJobs.filter((job) => job.id != id);
+    setAllJobs(filtredJobs);
+  }
+
+  function handleEditJob(type, id, e) {
+    setAllJobs((prevJobs) => {
+      return prevJobs.map((job) => {
+        if (job.id === id) {
+          if (type === "company-name") {
+            return { ...job, companyName: e.target.value };
+          }
+          if (type === "position-title") {
+            return { ...job, positionTitle: e.target.value };
+          }
+          if (type === "main-responsabilities") {
+            return { ...job, mainResponsabilities: e.target.value };
+          }
+          if (type === "start-date") {
+            return { ...job, startDate: e };
+          }
+          if (type === "end-date") {
+            return { ...job, endDate: e };
+          }
+        } else {
+          return job;
+        }
+      });
+    });
+  }
+
+  console.log(allJobs);
   return (
     <>
       <div className="left-side-main">
         <FormGeneralInfo handleSubmit={getGeneralInfo}></FormGeneralInfo>
         <FormEducationalInfo
           handleSubmit={getEducationalInfo}
-          type="submit"
         ></FormEducationalInfo>
         <DisplayStudyEditDelete
           allStudies={allStudies}
           onEdit={handleEditInput}
           onDelete={handleDeleteStudy}
         ></DisplayStudyEditDelete>
+        <FormPracticalInfo handleSubmit={getPracticalInfo}></FormPracticalInfo>
+        <DisplayJobEditDelete
+          allJobs={allJobs}
+          onDelete={handleDeleteJob}
+          onEdit={handleEditJob}
+        ></DisplayJobEditDelete>
       </div>
       <div className="right-side-main">
         <div className="cv"></div>

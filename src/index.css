@@ -38,3 +38,11 @@ h6 {
   background-color: white;
   height: 100%;
 }
+
+.responsabilities {
+  display: flex;
+  flex-direction: column;
+}
+.responsabilities textarea {
+  max-width: 300px;
+}
