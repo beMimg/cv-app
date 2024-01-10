@@ -26,8 +26,8 @@ export function FormPracticalInfo({ handleSubmit }) {
   }
 
   return (
-    <>
-      <h1>Practical Information</h1>
+    <div className="form-section">
+      <h1 className="form-title">Practical Information</h1>
       <form onSubmit={handleFormSubmit}>
         <div>
           <label htmlFor="company-name">Company name:</label>
@@ -72,7 +72,7 @@ export function FormPracticalInfo({ handleSubmit }) {
         </div>
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 }
 
@@ -81,40 +81,45 @@ export function DisplayJobEditDelete({ allJobs, onDelete, onEdit }) {
     <ul>
       {allJobs.map((job) => {
         return (
-          <li key={job.id}>
-            <label htmlFor="company-name">Company name:</label>
-            <input
-              type="text"
-              value={job.companyName}
-              onChange={(e) => onEdit("company-name", job.id, e)}
-            />
-            <label htmlFor="position-title">Position title:</label>
-            <input
-              type="text"
-              value={job.positionTitle}
-              onChange={(e) => onEdit("position-title", job.id, e)}
-            />
-            <label htmlFor="main-responsabilities">
-              Main responsabilities:
-            </label>
-            <textarea
-              value={job.mainResponsabilities}
-              onChange={(e) => onEdit("main-responsabilities", job.id, e)}
-            ></textarea>
-            <label htmlFor="start-date">Start date:</label>
-            <input
-              type="date"
-              value={job.startDate}
-              onChange={(e) => onEdit("start-date", job.id, e)}
-            />
-            <label htmlFor="end-date">End date:</label>
-            <input
-              type="date"
-              value={job.endDate}
-              onChange={(e) => onEdit("end-date", job.id, e)}
-            />
-            <button onClick={() => onDelete(job.id)}> Delete</button>
-          </li>
+          <div className="created-form">
+            <li key={job.id}>
+              <label htmlFor="company-name">Company name:</label>
+              <input
+                type="text"
+                value={job.companyName}
+                onChange={(e) => onEdit("company-name", job.id, e)}
+              />
+              <label htmlFor="position-title">Position title:</label>
+              <input
+                type="text"
+                value={job.positionTitle}
+                onChange={(e) => onEdit("position-title", job.id, e)}
+              />
+              <label htmlFor="main-responsabilities">
+                Main responsabilities:
+              </label>
+              <textarea
+                value={job.mainResponsabilities}
+                onChange={(e) => onEdit("main-responsabilities", job.id, e)}
+                className="responsabilities"
+              ></textarea>
+              <label htmlFor="start-date">Start date:</label>
+              <input
+                type="date"
+                value={job.startDate}
+                onChange={(e) => onEdit("start-date", job.id, e)}
+              />
+              <label htmlFor="end-date">End date:</label>
+              <input
+                type="date"
+                value={job.endDate}
+                onChange={(e) => onEdit("end-date", job.id, e)}
+              />
+              <button className="delete-btn" onClick={() => onDelete(job.id)}>
+                Delete
+              </button>
+            </li>
+          </div>
         );
       })}
     </ul>

@@ -1,9 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  font-family: montserrat, arial, verdana;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 h1,
 h2,
 h3,
@@ -21,28 +32,129 @@ h6 {
   padding: 0;
   max-width: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40% 60%;
 }
 
 .left-side-main {
-  background-color: #fcf6f5;
+  background-color: #3831bd;
+  font-size: 16px;
+  overflow: auto;
 }
 
 .right-side-main {
   max-height: 100vh;
-  padding: 20px;
-  background-color: #990011;
+  background-color: #302224;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cv {
   background-color: white;
   height: 100%;
+  width: 65%;
+}
+
+.left-side-main label {
+  font-size: 1rem;
 }
 
 .responsabilities {
   display: flex;
   flex-direction: column;
 }
+
 .responsabilities textarea {
-  max-width: 300px;
+  max-width: 400px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form button {
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 15px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+form button:hover {
+  background-color: #1e8449;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+}
+
+.form-section {
+  background-color: white;
+  padding: 20px;
+}
+
+.form-section.middle {
+  background-color: rgb(236, 236, 236);
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+}
+
+input:focus {
+  border: 2px solid rgb(45, 45, 199);
+  outline: none;
+}
+
+.created-form {
+  background-color: rgb(213, 213, 213);
+  padding: 20px;
+  border: 1px solid black;
+  margin: 30px;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: #ae2727;
+  border-radius: 8px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 15px;
+  position: relative;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #841e1e;
+  transform: translateY(0);
+  transition-duration: 0.35s;
 }

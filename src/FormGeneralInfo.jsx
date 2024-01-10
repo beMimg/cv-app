@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function FormGeneralInfo({ handleSubmit }) {
-  const [name, setName] = useState("John Philip Morris");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
@@ -15,7 +15,7 @@ export function FormGeneralInfo({ handleSubmit }) {
   }
 
   return (
-    <>
+    <div className="form-section">
       <h1 className="form-title">General Information</h1>
       {isSubmit ? (
         <button onClick={() => setIsSubmit(false)}>Edit</button>
@@ -29,6 +29,7 @@ export function FormGeneralInfo({ handleSubmit }) {
               id="full-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
             />
           </div>
           <div>
@@ -54,6 +55,6 @@ export function FormGeneralInfo({ handleSubmit }) {
           <button type="submit">Submit</button>
         </form>
       )}
-    </>
+    </div>
   );
 }

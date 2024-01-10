@@ -20,8 +20,8 @@ export function FormEducationalInfo({ handleSubmit }) {
   }
 
   return (
-    <>
-      <h1>Educational Information</h1>
+    <div className="form-section middle">
+      <h1 className="form-title">Educational Information</h1>
       <form onSubmit={handleFormSubmit}>
         <div>
           <label htmlFor="school-name">School name:</label>
@@ -55,7 +55,7 @@ export function FormEducationalInfo({ handleSubmit }) {
         </div>
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 }
 
@@ -64,27 +64,31 @@ export function DisplayStudyEditDelete({ allStudies, onDelete, onEdit }) {
     <ul>
       {allStudies.map((study) => {
         return (
-          <li key={study.id}>
-            <label htmlFor="school-name">School name:</label>
-            <input
-              type="text"
-              value={study.schoolName}
-              onChange={(e) => onEdit("school", study.id, e)}
-            />
-            <label htmlFor="title-of-study">Title of study:</label>
-            <input
-              type="text"
-              value={study.titleOfStudy}
-              onChange={(e) => onEdit("title-of-study", study.id, e)}
-            />
-            <label htmlFor="date-of-study">Date of study:</label>
-            <input
-              type="text"
-              value={study.dateOfStudy}
-              onChange={(e) => onEdit("date-of-study", study.id, e)}
-            />
-            <button onClick={() => onDelete(study.id)}>Delete</button>
-          </li>
+          <div className="created-form">
+            <li key={study.id}>
+              <label htmlFor="school-name">School name:</label>
+              <input
+                type="text"
+                value={study.schoolName}
+                onChange={(e) => onEdit("school", study.id, e)}
+              />
+              <label htmlFor="title-of-study">Title of study:</label>
+              <input
+                type="text"
+                value={study.titleOfStudy}
+                onChange={(e) => onEdit("title-of-study", study.id, e)}
+              />
+              <label htmlFor="date-of-study">Date of study:</label>
+              <input
+                type="text"
+                value={study.dateOfStudy}
+                onChange={(e) => onEdit("date-of-study", study.id, e)}
+              />
+              <button className="delete-btn" onClick={() => onDelete(study.id)}>
+                Delete
+              </button>
+            </li>
+          </div>
         );
       })}
     </ul>

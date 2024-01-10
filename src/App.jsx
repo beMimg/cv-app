@@ -115,9 +115,11 @@ function App() {
           <h1>Practical Information:</h1>
           {allJobs.map((job) => (
             <div key={job.id}>
-              <p>{job.companyName}</p>
-              <p>{job.positionTitle}</p>
-              <p>{job.mainResponsabilities}</p>
+              <p>Company name:{job.companyName}</p>
+              <p>Position title:{job.positionTitle}</p>
+              <p>Main responsabilities:{job.mainResponsabilities}</p>
+              <p>Start date: {job.startDate}</p>
+              <p>End date: {job.endDate}</p>
             </div>
           ))}
         </div>
