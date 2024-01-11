@@ -125,7 +125,7 @@ function App() {
           <section className="cv-section">
             <h1 className="section-title">Practical Information:</h1>
             {allJobs.map((job) => (
-              <div key={job.id}>
+              <ul key={job.id}>
                 <li>
                   <strong>{job.positionTitle}</strong>
                 </li>
@@ -135,7 +135,7 @@ function App() {
                 <p>
                   From: {job.startDate} To: {job.endDate}
                 </p>
-              </div>
+              </ul>
             ))}
           </section>
         </div>
