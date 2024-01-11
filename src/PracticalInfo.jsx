@@ -82,7 +82,7 @@ export function DisplayJobEditDelete({ allJobs, onDelete, onEdit }) {
     <ul>
       {allJobs.map((job) => {
         return (
-          <div className="created-form">
+          <div key={job.id} className="created-form">
             <li key={job.id}>
               <label htmlFor="company-name">Company name:</label>
               <input

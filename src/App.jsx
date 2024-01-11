@@ -77,7 +77,6 @@ function App() {
     });
   }
 
-  console.log(allJobs);
   return (
     <>
       <div className="left-side-main">
@@ -101,7 +100,6 @@ function App() {
         <div className="cv">
           <section className="cv-left-side">
             <img className="img-rick" src={logo}></img>
-
             <ul>
               <li>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
