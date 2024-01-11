@@ -31,6 +31,7 @@ export function FormEducationalInfo({ handleSubmit }) {
             id="school-name"
             value={schoolName}
             onChange={(e) => setSchoolName(e.target.value)}
+            placeholder="University of ..."
           />
         </div>
         <div>
@@ -41,6 +42,7 @@ export function FormEducationalInfo({ handleSubmit }) {
             id="title-of-study"
             value={titleOfStudy}
             onChange={(e) => setTitleOfStudy(e.target.value)}
+            placeholder="e.g. Computer Science"
           />
         </div>
         <div>
@@ -64,8 +66,8 @@ export function DisplayStudyEditDelete({ allStudies, onDelete, onEdit }) {
     <ul>
       {allStudies.map((study) => {
         return (
-          <div className="created-form">
-            <li key={study.id}>
+          <div key={study.id} className="created-form">
+            <li>
               <label htmlFor="school-name">School name:</label>
               <input
                 type="text"
@@ -80,7 +82,7 @@ export function DisplayStudyEditDelete({ allStudies, onDelete, onEdit }) {
               />
               <label htmlFor="date-of-study">Date of study:</label>
               <input
-                type="text"
+                type="date"
                 value={study.dateOfStudy}
                 onChange={(e) => onEdit("date-of-study", study.id, e)}
               />

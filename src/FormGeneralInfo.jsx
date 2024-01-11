@@ -18,7 +18,9 @@ export function FormGeneralInfo({ handleSubmit }) {
     <div className="form-section">
       <h1 className="form-title">General Information</h1>
       {isSubmit ? (
-        <button onClick={() => setIsSubmit(false)}>Edit</button>
+        <button className="edit-btn" onClick={() => setIsSubmit(false)}>
+          Edit
+        </button>
       ) : (
         <form onSubmit={handleFormSubmit}>
           <div>
@@ -40,6 +42,7 @@ export function FormGeneralInfo({ handleSubmit }) {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@example.com"
             />
           </div>
           <div>
@@ -50,6 +53,7 @@ export function FormGeneralInfo({ handleSubmit }) {
               id="phone-number"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="123123123"
             />
           </div>
           <button type="submit">Submit</button>

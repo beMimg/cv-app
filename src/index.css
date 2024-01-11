@@ -7,7 +7,7 @@ body {
   font-family: montserrat, arial, verdana;
 }
 
-ul {
+.left-side-main ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -15,6 +15,7 @@ ul {
   flex-direction: column;
   gap: 20px;
 }
+
 h1,
 h2,
 h3,
@@ -30,7 +31,6 @@ h6 {
   width: 100%;
   margin: 0;
   padding: 0;
-  max-width: none;
   display: grid;
   grid-template-columns: 40% 60%;
 }
@@ -41,28 +41,14 @@ h6 {
   overflow: auto;
 }
 
-.right-side-main {
-  max-height: 100vh;
-  background-color: #302224;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cv {
-  background-color: white;
-  height: 100%;
-  width: 65%;
-}
-
-.left-side-main label {
+label {
   font-size: 1rem;
 }
 
 .responsabilities {
   display: flex;
   flex-direction: column;
+  max-width: 400px;
 }
 
 .responsabilities textarea {
@@ -74,6 +60,16 @@ form {
   flex-direction: column;
   gap: 10px;
 }
+
+.form-section {
+  background-color: white;
+  padding: 20px;
+}
+
+.form-section.middle {
+  background-color: rgb(236, 236, 236);
+}
+
 .form-title {
   margin-bottom: 10px;
   font-size: 1.5rem;
@@ -105,13 +101,48 @@ form button:hover {
   transition-duration: 0.35s;
 }
 
-.form-section {
-  background-color: white;
-  padding: 20px;
+.delete-btn {
+  background-color: #ae2727;
+  border-radius: 8px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 15px;
+  position: relative;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
-.form-section.middle {
-  background-color: rgb(236, 236, 236);
+.delete-btn:hover {
+  background-color: #841e1e;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+}
+
+.edit-btn {
+  background-color: #aea727;
+  border-radius: 8px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 15px;
+  position: relative;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #84711e;
+  transform: translateY(0);
+  transition-duration: 0.35s;
 }
 
 input {
@@ -137,24 +168,76 @@ input:focus {
   border-radius: 5px;
 }
 
-.delete-btn {
-  background-color: #ae2727;
-  border-radius: 8px;
-  border-style: none;
-  color: #fff;
-  cursor: pointer;
-  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
-    sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 8px 15px;
-  position: relative;
-  transition: all 0.3s;
-  margin-top: 10px;
+.right-side-main {
+  background-color: #302224;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 100vh;
 }
 
-.delete-btn:hover {
-  background-color: #841e1e;
-  transform: translateY(0);
-  transition-duration: 0.35s;
+.cv {
+  background-color: white;
+  height: 100%;
+  width: 65%;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.cv-left-side {
+  border-right: 2px solid rgb(0, 0, 0);
+  border-left: 50% solid rgb(80, 80, 239);
+  background-color: rgb(255, 228, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cv-left-side ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cv-left-side li {
+  padding: 10px;
+}
+.cv-right-side {
+  display: grid;
+  grid-template-rows: 15% auto auto;
+  overflow: hidden;
+}
+
+.cv-section {
+  padding: 10px;
+  display: grid;
+}
+.cv-section-wrap {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(10px, 1fr));
+  max-height: 400px;
+}
+.section-title {
+  font-size: 1rem;
+}
+.right-side-main ul {
+  margin: 0;
+}
+.right-side-main p {
+  margin: 0;
+}
+.cv-section.top {
+  background-color: rgb(63, 63, 249);
+  border: none;
+  color: white;
+  border-bottom-right-radius: 10px;
+}
+.img-rick {
+  width: 80%;
+  height: 150px;
+  border-radius: 40%;
 }

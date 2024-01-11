@@ -35,6 +35,7 @@ export function FormPracticalInfo({ handleSubmit }) {
             type="text"
             value={companyName}
             onChange={(e) => setCompanyName(e.target.value)}
+            placeholder="Example & Example Organization"
           />
         </div>
         <div>
@@ -43,15 +44,15 @@ export function FormPracticalInfo({ handleSubmit }) {
             type="text"
             value={positionTitle}
             onChange={(e) => setPositionTitle(e.target.value)}
+            placeholder="E.g. Receptionist"
           />
         </div>
         <div className="responsabilities">
           <label htmlFor="main-responsabilities">Main responsabilities:</label>
           <textarea
-            cols="30"
-            rows="10"
             value={mainResponsabilities}
             onChange={(e) => setMainResponsabilities(e.target.value)}
+            placeholder="Showcase your relevant experience in previous roles"
           ></textarea>
         </div>
         <div>
