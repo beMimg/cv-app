@@ -98,62 +98,46 @@ function App() {
       </div>
       <div className="right-side-main">
         <div className="cv">
-          <section className="cv-left-side">
-            <img className="img-rick" src={logo}></img>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
-                sunt dignissimos assumenda laboriosam velit aut repellendus
-                alias veniam. Pariatur saepe velit natus aperiam nostrum dolorem
-                accusamus. Deserunt natus repudiandae ducimus.
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
-                cupiditate.
-              </li>
-            </ul>
+          <section className="cv-section top">
+            <h1 id="name">{generalInfo.name}</h1>
+            <p id="email">
+              Email: <strong>{generalInfo.email}</strong>
+            </p>
+            <p>
+              Phone Number: <strong>{generalInfo.phoneNumber}</strong>
+            </p>
           </section>
-          <div className="cv-right-side">
-            <section className="cv-section top">
-              <h1 id="name">{generalInfo.name}</h1>
-              <p id="email">
-                Email: <strong>{generalInfo.email}</strong>
-              </p>
-              <p>
-                Phone Number: <strong>{generalInfo.phoneNumber}</strong>
-              </p>
-            </section>
-            <section className="cv-section">
-              <h1 className="section-title">Educational Information:</h1>
-              {allStudies.map((study) => (
-                <ul key={study.id}>
-                  <li>
-                    {" "}
-                    <strong>{study.schoolName}</strong>
-                  </li>
-                  <p>{study.titleOfStudy}</p>
-                  <p>{study.dateOfStudy}</p>
-                </ul>
-              ))}
-            </section>
-            <section className="cv-section">
-              <h1 className="section-title">Practical Information:</h1>
-              {allJobs.map((job) => (
-                <div key={job.id}>
-                  <li>
-                    <strong>{job.positionTitle}</strong>
-                  </li>
-                  <p>{job.companyName}</p>
+          <section className="cv-section">
+            <h1 className="section-title">Educational Information:</h1>
+            {allStudies.map((study) => (
+              <ul key={study.id}>
+                <li>
+                  School:
+                  <strong> {study.schoolName}</strong>
+                </li>
+                <p>
+                  Title of Study: <strong>{study.titleOfStudy}</strong>
+                </p>
+                <p>Date: {study.dateOfStudy}</p>
+              </ul>
+            ))}
+          </section>
+          <section className="cv-section">
+            <h1 className="section-title">Practical Information:</h1>
+            {allJobs.map((job) => (
+              <div key={job.id}>
+                <li>
+                  <strong>{job.positionTitle}</strong>
+                </li>
+                <p>Company: {job.companyName}</p>
 
-                  <p>{job.mainResponsabilities}</p>
-                  <p>
-                    From:{job.startDate} To:
-                    {job.endDate}
-                  </p>
-                </div>
-              ))}
-            </section>
-          </div>
+                <p>Responsabilities: {job.mainResponsabilities}</p>
+                <p>
+                  From: {job.startDate} To: {job.endDate}
+                </p>
+              </div>
+            ))}
+          </section>
         </div>
       </div>
     </>
